@@ -1,8 +1,12 @@
 package com.example.sl2;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -10,14 +14,57 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+        new FirstStage();
     }
 
     public static void main(String[] args) {
         launch();
+    }
+}
+
+ class FirstStage extends Stage {
+    Button openOther = new Button("Open Second Stage");
+    Boolean opened = false;
+    HBox x = new HBox();
+    FirstStage(){
+        x.getChildren().add(openOther);
+        x.setAlignment(Pos.CENTER);
+        //openOther.setAlignment(Pos.CENTER);
+        this.setScene(new Scene(x, 200, 200));
+        this.setResizable(false);
+        this.setX(1050);
+        this.setY(400);
+        this.show();
+        open_stages();
+
+    }
+
+    public void open_stages(){
+        new SecondStage();
+        new ThirdStage();
+    }
+}
+
+class SecondStage extends Stage{
+    Label x = new Label("Second Stage");
+    VBox y = new VBox();
+    SecondStage(){
+        y.getChildren().add(x);
+        this.setScene(new Scene(y, 800, 400));
+        this.setX(70);
+        this.setY(50);
+        this.show();
+    }
+}
+
+class ThirdStage extends Stage{
+    Label x = new Label("Second Stage");
+    VBox y = new VBox();
+    ThirdStage(){
+        y.getChildren().add(x);
+        this.setScene(new Scene(y, 800, 400));
+        this.setX(70);
+        this.setY(530);
+        this.show();
     }
 }
