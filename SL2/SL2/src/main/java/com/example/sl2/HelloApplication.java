@@ -23,13 +23,14 @@ public class HelloApplication extends Application {
 }
 
  class FirstStage extends Stage {
-    Button openOther = new Button("Open Second Stage");
     Boolean opened = false;
     HBox x = new HBox();
     FirstStage(){
-        x.getChildren().add(openOther);
+        Label l = new Label("Hier kommen die Angaben hin");
         x.setAlignment(Pos.CENTER);
         //openOther.setAlignment(Pos.CENTER);
+        x.getChildren().add(l);
+
         this.setScene(new Scene(x, 200, 200));
         this.setResizable(false);
         this.setX(1050);
@@ -46,10 +47,11 @@ public class HelloApplication extends Application {
 }
 
 class SecondStage extends Stage{
-    Label x = new Label("Second Stage");
+    Label x = new Label("Hier das Balkendiagramm");
     VBox y = new VBox();
     SecondStage(){
         y.getChildren().add(x);
+        y.setAlignment(Pos.CENTER);
         this.setScene(new Scene(y, 800, 400));
         this.setX(70);
         this.setY(50);
@@ -58,10 +60,11 @@ class SecondStage extends Stage{
 }
 
 class ThirdStage extends Stage{
-    Label x = new Label("Second Stage");
+    Label x = new Label("Hier das Tortendiagramm");
     VBox y = new VBox();
     ThirdStage(){
         y.getChildren().add(x);
+        y.setAlignment(Pos.CENTER);
         this.setScene(new Scene(y, 800, 400));
         this.setX(70);
         this.setY(530);
