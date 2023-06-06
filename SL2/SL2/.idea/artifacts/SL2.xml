@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="SL2">
+    <output-path>$PROJECT_DIR$/out/artifacts/SL2</output-path>
+    <root id="root">
+      <element id="archive" name="SL2.jar">
+        <element id="module-output" name="SL2" />
+      </element>
+    </root>
+  </artifact>
+</component>

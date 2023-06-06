@@ -7,4 +7,6 @@ module com.example.sl2 {
 
     opens com.example.sl2 to javafx.fxml;
     exports com.example.sl2;
+    exports com.example.sl2.View;
+    opens com.example.sl2.View to javafx.fxml;
 }

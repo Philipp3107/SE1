@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Main-Class: com.example.sl2.HelloApplication
+Class-Path: javafx-controls-20-mac-aarch64.jar javafx-base-20-mac-aarch6
+ 4.jar bootstrapfx-core-0.4.0.jar controlsfx-11.1.2.jar javafx-fxml-20-m
+ ac-aarch64.jar javafx-base-20.jar javafx-graphics-20-mac-aarch64.jar ja
+ vafx-controls-20.jar javafx-graphics-20.jar javafx-fxml-20.jar
+

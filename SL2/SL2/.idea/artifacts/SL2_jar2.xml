@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact name="SL2:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/SL2_jar2</output-path>
+    <root id="root">
+      <element id="archive" name="SL2.jar">
+        <element id="module-output" name="SL2" />
+      </element>
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:mac-aarch64:20" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:mac-aarch64:20" />
+      <element id="library" level="project" name="Maven: org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0" />
+      <element id="library" level="project" name="Maven: org.controlsfx:controlsfx:11.1.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:mac-aarch64:20" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:20" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:mac-aarch64:20" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:20" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:20" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:20" />
+    </root>
+  </artifact>
+</component>
