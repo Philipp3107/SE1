@@ -1,6 +1,6 @@
 package com.example.se1sl.VIEW;
 
-import com.example.se1sl.Model.Studiengang;
+import Model.Studiengang;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;

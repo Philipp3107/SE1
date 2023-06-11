@@ -1,4 +1,4 @@
-package com.example.se1sl.Model;
+package Model;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleIntegerProperty;

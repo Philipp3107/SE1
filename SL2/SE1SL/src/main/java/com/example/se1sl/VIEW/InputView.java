@@ -1,6 +1,6 @@
 package com.example.se1sl.VIEW;
 
-import com.example.se1sl.Model.Studiengang;
+import Model.Studiengang;
 import com.example.se1sl.Controller.AppController;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -14,7 +14,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 public class InputView extends Stage {
 
-    private TableView<com.example.se1sl.Model.Studiengang> table = new TableView<>();
+    private TableView<Studiengang> table = new TableView<>();
     private Stage second;
     private AppController controller;
 
@@ -41,21 +41,21 @@ public class InputView extends Stage {
 
     public TableColumn[] setup_columns(){
         TableColumn[] columns = new TableColumn[2];
-        TableColumn<com.example.se1sl.Model.Studiengang, String> name = new TableColumn<>("Studiengang");
+        TableColumn<Studiengang, String> name = new TableColumn<>("Studiengang");
         name.setCellValueFactory((n) -> {
             return n.getValue().getName();
         });
         name.setCellFactory(TextFieldTableCell.forTableColumn());
-        name.setOnEditCommit((TableColumn.CellEditEvent<com.example.se1sl.Model.Studiengang, String> t) -> {
+        name.setOnEditCommit((TableColumn.CellEditEvent<Studiengang, String> t) -> {
             controller.change_name(t.getTablePosition().getRow(), t.getOldValue(), t.getNewValue());
         });
         columns[0] = name;
-        TableColumn<com.example.se1sl.Model.Studiengang, Integer> bewerber = new TableColumn<>("Bewerber");
+        TableColumn<Studiengang, Integer> bewerber = new TableColumn<>("Bewerber");
         bewerber.setCellValueFactory((b) -> {
             return b.getValue().getBewerber().asObject();
         });
-        bewerber.setCellFactory(TextFieldTableCell.<com.example.se1sl.Model.Studiengang, Integer>forTableColumn(new IntegerStringConverter()));
-        bewerber.setOnEditCommit((TableColumn.CellEditEvent<com.example.se1sl.Model.Studiengang, Integer> t) -> {
+        bewerber.setCellFactory(TextFieldTableCell.<Studiengang, Integer>forTableColumn(new IntegerStringConverter()));
+        bewerber.setOnEditCommit((TableColumn.CellEditEvent<Studiengang, Integer> t) -> {
             controller.change_bewerber(t.getTablePosition().getRow(), t.getOldValue(), t.getNewValue());
 
         });
@@ -63,8 +63,8 @@ public class InputView extends Stage {
         return columns;
     }
 
-    public TableView<com.example.se1sl.Model.Studiengang> setup_table(){
-        TableView<com.example.se1sl.Model.Studiengang> table = new TableView<>();
+    public TableView<Studiengang> setup_table(){
+        TableView<Studiengang> table = new TableView<>();
         table.setEditable(true);
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
@@ -144,7 +144,7 @@ public class InputView extends Stage {
  *         tView.setItems(studiengaenge);
  *         bewerber.getTableView().getItems().addListener(new ListChangeListener<Studiengang>() {
  *             @Override
- *             public void onChanged(Change change) {
+ *             public void onChanged(Change<? extends Studiengang> change) {
  *                 System.out.println("Got changed 2387r69287r");
  *             }
  *         });
