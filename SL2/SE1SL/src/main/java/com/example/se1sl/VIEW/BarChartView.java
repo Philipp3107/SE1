@@ -49,7 +49,10 @@ public class BarChartView extends Stage {
         this.bar_chart_data.addListener((ListChangeListener<XYChart.Series<String, Number>>) change -> {
             while (change.next()){
                 if(change.wasRemoved()){
-                    update_view();
+                    this.barChart.getData().clear();
+                    for(XYChart.Series s: bar_chart_data){
+                        this.barChart.getData().add(s);
+                    }
                 }
             }
         });
@@ -69,13 +72,6 @@ public class BarChartView extends Stage {
         Scene scene = new Scene(this.root, 530, 400);
         this.setScene(scene);
         this.show();
-    }
-
-    private void update_view() {
-        this.barChart.getData().clear();
-        for(XYChart.Series s: bar_chart_data){
-            this.barChart.getData().add(s);
-        }
     }
 
     public void setup_list(ObservableList<Studiengang> ol){
@@ -109,7 +105,7 @@ public class BarChartView extends Stage {
             i++;
         }
     }
-    public void update_view(boolean changed, ObservableList<Studiengang> ol, int index){
+    public void updateBarChart(boolean changed, ObservableList<Studiengang> ol, int index){
         if(changed){
             update_bewerber(ol, index);
         }else{

@@ -3,6 +3,7 @@ package com.example.se1sl.Controller;
 import com.example.se1sl.Model.Studiengang;
 
 import com.example.se1sl.VIEW.BarChartView;
+import com.example.se1sl.VIEW.PieChartView;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ import java.util.List;
 
 public class AppController{
     private BarChartView second;
+    private PieChartView third;
     private List<Studiengang> sga;
     private final ObservableList<Studiengang> om;
     private Integer index;
@@ -24,7 +26,7 @@ public class AppController{
                 if(change.wasRemoved()){
                     System.out.println("added element");
                     System.out.println(changed);
-                    second.update_view(changed, om, index);
+                    second.updateBarChart(changed, om, index);
                 }
             }
         });
@@ -32,10 +34,12 @@ public class AppController{
     }
 
     private void setup(){
+        this.third = new PieChartView(this.getOm());
         this.second = new BarChartView(this.getOm());
     }
     public void close_other_stage(){
         second.close();
+        third.close();
     }
 
     private void set_up_sga(){
