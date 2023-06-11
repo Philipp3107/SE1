@@ -1,9 +1,6 @@
-package com.example.sl2;
+package com.example.se1sl;
 
-import com.example.sl2.Controller.TestController;
-import com.example.sl2.Model.TestModel;
-import com.example.sl2.View.InputPanel;
-import com.example.sl2.View.InputStage;
+import com.example.se1sl.VIEW.InputView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -12,8 +9,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        //new InputPanel(new TestController(new TestModel()));
-        new InputStage();
+        new InputView();
     }
 
     public static void main(String[] args) {

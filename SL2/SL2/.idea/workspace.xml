@@ -10,25 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="363a7999-9731-402e-8526-06ef4604459e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SL2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SL2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SL2_jar2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/SL2_jar2/SL2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/SL2_jar2/bootstrapfx-core-0.4.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/SL2_jar2/controlsfx-11.1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/SL2_jar2/javafx-base-20-mac-aarch64.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/SL2_jar2/javafx-base-20.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/SL2_jar2/javafx-controls-20-mac-aarch64.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/SL2_jar2/javafx-controls-20.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/SL2_jar2/javafx-fxml-20-mac-aarch64.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/SL2_jar2/javafx-fxml-20.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/SL2_jar2/javafx-graphics-20-mac-aarch64.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/SL2_jar2/javafx-graphics-20.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sl2/View/BarChartPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sl2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sl2/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sl2/View/BarChartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sl2/View/BarChartPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sl2/View/InputPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sl2/View/InputPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sl2/View/PieChartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sl2/View/PieChartPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,6 +59,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.sl2.Model" />
       <recent name="com.example.sl2.View" />
     </key>
   </component>
@@ -124,7 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1685981960403</updated>
       <workItem from="1685981961803" duration="9389000" />
-      <workItem from="1686004294537" duration="7602000" />
+      <workItem from="1686004294537" duration="26672000" />
     </task>
     <servers />
   </component>

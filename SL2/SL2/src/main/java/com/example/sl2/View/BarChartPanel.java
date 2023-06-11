@@ -7,9 +7,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class BarChartPanel extends Stage {
-    Label x = new Label("BarChartPanel");
+
     VBox y = new VBox();
     BarChartPanel(){
+        this.setTitle("Balkendiagramm");
+        Label x = new Label();
         y.getChildren().add(x);
         y.setAlignment(Pos.CENTER);
         this.setScene(new Scene(y, 800, 400));
