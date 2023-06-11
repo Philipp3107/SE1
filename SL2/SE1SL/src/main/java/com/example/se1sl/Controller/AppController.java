@@ -1,6 +1,6 @@
 package com.example.se1sl.Controller;
 
-import Model.Studiengang;
+import com.example.se1sl.Model.Studiengang;
 
 import com.example.se1sl.VIEW.BarChartView;
 import javafx.collections.FXCollections;
@@ -13,7 +13,7 @@ import java.util.List;
 public class AppController{
     private BarChartView second;
     private List<Studiengang> sga;
-    private ObservableList<Studiengang> om;
+    private ObservableList<com.example.se1sl.Model.Studiengang> om;
     private Integer index;
     private boolean changed;
     public AppController(){
@@ -54,7 +54,7 @@ public class AppController{
         this.sga = sg;
     }
 
-    public ObservableList<Studiengang> getOm() {
+    public ObservableList<com.example.se1sl.Model.Studiengang> getOm() {
         return this.om;
     }
 
