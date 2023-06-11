@@ -16,12 +16,11 @@ import java.util.List;
 public class PieChartView extends Stage {
     private PieChart pieChart;
     private ObservableList<PieChart.Data> om;
+    private Group root = new Group();
 
     public PieChartView(ObservableList<Studiengang> om) {
-        Scene scene = new Scene(new Group());
+
         this.setTitle("Studiengänge und ihre Bewerber");
-        this.setWidth(500);
-        this.setHeight(500);
         this.setX(10);
         this.setY(10);
         List<PieChart.Data> data = new ArrayList<>();
@@ -30,19 +29,9 @@ public class PieChartView extends Stage {
         }
         this.om = FXCollections.observableArrayList(data);
         this.pieChart = new PieChart(this.om);
-        this.om.addListener((ListChangeListener<PieChart.Data>)change -> {
-            while (change.next()) {
-                if(change.wasRemoved()) {
-                    this.pieChart.getData().clear();
-                    for(PieChart.Data d : this.om) {
-                        this.pieChart.getData().add(d);
-                    }
-                }
-            }
-        });
         this.pieChart.setTitle("Studiengänge und ihre Bewerber");
-
-        ((Group) scene.getRoot()).getChildren().add(this.pieChart);
+        this.root.getChildren().add(this.pieChart);
+        Scene scene = new Scene(root, 500, 500);
         this.setScene(scene);
         this.show();
     }

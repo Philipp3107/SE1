@@ -46,16 +46,6 @@ public class BarChartView extends Stage {
 
         }
         this.bar_chart_data = FXCollections.observableArrayList(series_list);
-        this.bar_chart_data.addListener((ListChangeListener<XYChart.Series<String, Number>>) change -> {
-            while (change.next()){
-                if(change.wasRemoved()){
-                    this.barChart.getData().clear();
-                    for(XYChart.Series s: bar_chart_data){
-                        this.barChart.getData().add(s);
-                    }
-                }
-            }
-        });
         for(XYChart.Series s: this.bar_chart_data){
             System.out.println(s.getData().toString());
         }
@@ -63,9 +53,8 @@ public class BarChartView extends Stage {
         this.xAxis.setCategories(FXCollections.observableArrayList("bewerber"));
         this.xAxis.setLabel("Studiengang");
         this.yAxis.setLabel("Bewerber");
-        this.barChart = new BarChart<>(xAxis, yAxis);
+        this.barChart = new BarChart<>(xAxis, yAxis, bar_chart_data);
         this.barChart.setTitle("Studiengänge und ihre Bewerber");
-        this.barChart.getData().addAll(bar_chart_data);
         this.root.getChildren().add(barChart);
     }
     public void init(){
@@ -73,7 +62,6 @@ public class BarChartView extends Stage {
         this.setScene(scene);
         this.show();
     }
-
     public void setup_list(ObservableList<Studiengang> ol){
         System.out.println("setting up list");
         int i = 0;
@@ -86,30 +74,10 @@ public class BarChartView extends Stage {
             i++;
         }
     }
-
-    private void update_bewerber(ObservableList<Studiengang> ol, int index){
-        int i = 0;
-        for(XYChart.Series<String, Number> s: this.barChart.getData()){
-            for(XYChart.Data<String, Number> data : s.getData()){
-                data.setYValue(ol.get(i).getBewerber().get());
-                i++;
-            }
-        }
-
-    }
-
-    private void update_categorie(ObservableList<Studiengang> ol){
-        int i = 0;
-        for(XYChart.Series<String, Number> s: this.barChart.getData()){
-            s.setName(ol.get(i).getName().get());
-            i++;
-        }
-    }
     public void updateBarChart(boolean changed, ObservableList<Studiengang> ol, int index){
-        if(changed){
-            update_bewerber(ol, index);
-        }else{
-            update_categorie(ol);
-        }
+//        XYChart.Series<String, Number> series = new XYChart.Series<>();
+//        series.setName(ol.get(index).getName().get());
+//        series.getData().add(new XYChart.Data<>("bewerber", ol.get(index).getBewerber().get()));
+        this.bar_chart_data.get(index).getData().get(0).setYValue(ol.get(index).getBewerber().get());
     }
 }
