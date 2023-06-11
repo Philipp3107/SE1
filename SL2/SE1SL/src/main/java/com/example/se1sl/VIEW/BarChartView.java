@@ -1,6 +1,6 @@
 package com.example.se1sl.VIEW;
 
-import Model.Studiengang;
+import com.example.se1sl.Model.Studiengang;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -27,26 +27,10 @@ public class BarChartView extends Stage {
 
     List<String> sg_name_list = new ArrayList<>();
     ObservableList<XYChart.Series<String, Number>> bar_chart_data;
-    public BarChartView(ObservableList<Studiengang> ol){
-        //1. Setup the view
-
-        //2. Build the Barchart
-        //2.1 Build the Axis
-        //2.2 fill axis with content
-        //2.3 change axis according to changes
-
-        //3. Change the Barchart
-
-
-        //initializing the BarChartView
+    public BarChartView(ObservableList<Studiengang> ol) {
         init();
-
         setup_chart(ol);
-
         setup_list(ol);
-
-
-        //setup_list();
     }
     public void setup_chart(ObservableList<Studiengang> ol){
         for(Studiengang s: ol){
@@ -61,14 +45,11 @@ public class BarChartView extends Stage {
             series_list.add(series);
 
         }
-        this.bar_chart_data = FXCollections.<XYChart.Series<String, Number>>observableArrayList(series_list);
-        this.bar_chart_data.addListener(new ListChangeListener<XYChart.Series<String, Number>>() {
-            @Override
-            public void onChanged(Change<? extends XYChart.Series<String, Number>> change) {
-                while (change.next()){
-                    if(change.wasRemoved()){
-                        update_view();
-                    }
+        this.bar_chart_data = FXCollections.observableArrayList(series_list);
+        this.bar_chart_data.addListener((ListChangeListener<XYChart.Series<String, Number>>) change -> {
+            while (change.next()){
+                if(change.wasRemoved()){
+                    update_view();
                 }
             }
         });
@@ -76,25 +57,21 @@ public class BarChartView extends Stage {
             System.out.println(s.getData().toString());
         }
 
-        this.xAxis.setCategories(FXCollections.<String>observableArrayList("bewerber"));
+        this.xAxis.setCategories(FXCollections.observableArrayList("bewerber"));
         this.xAxis.setLabel("Studiengang");
         this.yAxis.setLabel("Bewerber");
         this.barChart = new BarChart<>(xAxis, yAxis);
         this.barChart.setTitle("Studiengänge und ihre Bewerber");
         this.barChart.getData().addAll(bar_chart_data);
-        //for(XYChart.Series s: bar_chart_data){
-        //this.barChart.getData().add(s);
-        //}
         this.root.getChildren().add(barChart);
     }
     public void init(){
         Scene scene = new Scene(this.root, 530, 400);
         this.setScene(scene);
         this.show();
-
     }
 
-    private void update_view(){
+    private void update_view() {
         this.barChart.getData().clear();
         for(XYChart.Series s: bar_chart_data){
             this.barChart.getData().add(s);
@@ -114,21 +91,6 @@ public class BarChartView extends Stage {
         }
     }
 
-    private void update_bars(ObservableList<Studiengang> ol, int index){
-
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName(ol.get(index).getName().get());
-        series.getData().add(new XYChart.Data<>("bewerber", ol.get(index).getBewerber().get()));
-        this.bar_chart_data.remove(index);
-        this.bar_chart_data.add(index, series);
-
-        for(XYChart.Series<String, Number> s : this.bar_chart_data){
-            for(XYChart.Data<String, Number> data : s.getData()){
-
-            }
-        }
-    }
-
     private void update_bewerber(ObservableList<Studiengang> ol, int index){
         int i = 0;
         for(XYChart.Series<String, Number> s: this.barChart.getData()){
@@ -139,7 +101,6 @@ public class BarChartView extends Stage {
         }
 
     }
-
 
     private void update_categorie(ObservableList<Studiengang> ol){
         int i = 0;

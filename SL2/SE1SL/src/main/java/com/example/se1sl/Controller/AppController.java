@@ -1,6 +1,6 @@
 package com.example.se1sl.Controller;
 
-import Model.Studiengang;
+import com.example.se1sl.Model.Studiengang;
 
 import com.example.se1sl.VIEW.BarChartView;
 import javafx.collections.FXCollections;
@@ -13,21 +13,18 @@ import java.util.List;
 public class AppController{
     private BarChartView second;
     private List<Studiengang> sga;
-    private ObservableList<Studiengang> om;
+    private final ObservableList<Studiengang> om;
     private Integer index;
     private boolean changed;
     public AppController(){
         set_up_sga();
-        this.om = FXCollections.<Studiengang>observableArrayList(this.sga);
-        this.om.addListener(new ListChangeListener<Studiengang>() {
-            @Override
-            public void onChanged(Change<? extends Studiengang> change) {
-                while(change.next()){
-                    if(change.wasRemoved()){
-                        System.out.println("added element");
-                        System.out.println(changed);
-                        second.update_view(changed, om, index);
-                    }
+        this.om = FXCollections.observableArrayList(this.sga);
+        this.om.addListener((ListChangeListener<Studiengang>) change -> {
+            while(change.next()){
+                if(change.wasRemoved()){
+                    System.out.println("added element");
+                    System.out.println(changed);
+                    second.update_view(changed, om, index);
                 }
             }
         });
@@ -75,13 +72,5 @@ public class AppController{
         this.changed = true;
         om.add(index, new_sg);
         om.remove(index+1);
-//        for(Studiengang sg: om){
-//            System.out.println("Name: " + sg.getName() + "; Anzahl: " + sg.getBewerber());
-//        }
-
-    }
-
-    public ObservableList<Studiengang> update_views(){
-        return om;
     }
 }

@@ -4,11 +4,9 @@ import com.example.se1sl.VIEW.InputView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
-public class HelloApplication extends Application {
+public class Main extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         new InputView();
     }
 

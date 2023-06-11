@@ -1,4 +1,4 @@
-package Model;
+package com.example.se1sl.Model;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -9,7 +9,6 @@ import javafx.beans.value.ObservableValue;
 public class Studiengang implements ObservableValue {
     private SimpleStringProperty name;
     private SimpleIntegerProperty bewerber;
-    ChangeListener<? extends String> listener;
 
     public Studiengang(SimpleStringProperty name, SimpleIntegerProperty bewerber) {
         this.name = name;
