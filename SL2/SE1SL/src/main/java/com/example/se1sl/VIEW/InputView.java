@@ -28,7 +28,7 @@ public class InputView extends Stage {
         this.setTitle("Eingabe");
         table = setup_table();
         vb.getChildren().add(table);
-        Scene scene = new Scene(vb, 400, 125);
+        Scene scene = new Scene(vb, 400, 148);
         this.setScene(scene);
         this.setOnCloseRequest(windowEvent -> controller.close_other_stage());
         this.show();

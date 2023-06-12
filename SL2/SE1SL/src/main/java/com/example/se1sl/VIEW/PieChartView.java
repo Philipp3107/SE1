@@ -36,7 +36,7 @@ public class PieChartView extends Stage {
         this.pieChart.setTitle("Studiengänge und ihre Bewerber");
         add_handler();
         this.root.getChildren().addAll(this.pieChart, caption);
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, 500, 400);
         this.setScene(scene);
         this.show();
     }

@@ -45,8 +45,10 @@ public class BarChartView extends Stage {
         this.root.getChildren().add(barChart);
     }
     public void init(){
-        Scene scene = new Scene(this.root, 530, 400);
+        Scene scene = new Scene(this.root, 500, 400);
         this.setScene(scene);
+        this.setX(10);
+        this.setY(500);
         this.show();
     }
     public void updateBarChart(List<Fakultaet> ol, int index){
