@@ -1,7 +1,8 @@
 package com.example.se1sl.VIEW;
 
 import com.example.se1sl.Controller.AppController;
-import com.example.se1sl.Model.Studiengang;
+import com.example.se1sl.Model.Fakultaet;
+import javafx.collections.FXCollections;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -12,7 +13,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 public class InputView extends Stage {
 
-    private TableView<Studiengang> table = new TableView<>();
+    private TableView<Fakultaet> table = new TableView<>();
     private final AppController controller;
 
     public InputView(){
@@ -33,19 +34,19 @@ public class InputView extends Stage {
 
     public TableColumn[] setup_columns(){
         TableColumn[] columns = new TableColumn[2];
-        TableColumn<Studiengang, String> name = new TableColumn<>("Studiengang");
+        TableColumn<Fakultaet, String> name = new TableColumn<>("Studiengang");
         name.setCellValueFactory((n) -> {
-            return n.getValue().getName();
+            return n.getValue().getStudiengang();
         });
         name.setCellFactory(TextFieldTableCell.forTableColumn());
-        name.setOnEditCommit((TableColumn.CellEditEvent<Studiengang, String> t) -> {
+        name.setOnEditCommit((TableColumn.CellEditEvent<Fakultaet, String> t) -> {
             controller.change_name(t.getTablePosition().getRow(), t.getOldValue(), t.getNewValue());
         });
         columns[0] = name;
-        TableColumn<Studiengang, Integer> bewerber = new TableColumn<>("Bewerber");
+        TableColumn<Fakultaet, Integer> bewerber = new TableColumn<>("Bewerber");
         bewerber.setCellValueFactory((b) -> b.getValue().getBewerber().asObject());
         bewerber.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        bewerber.setOnEditCommit((TableColumn.CellEditEvent<Studiengang, Integer> t) -> {
+        bewerber.setOnEditCommit((TableColumn.CellEditEvent<Fakultaet, Integer> t) -> {
             controller.change_bewerber(t.getTablePosition().getRow(), t.getOldValue(), t.getNewValue());
 
         });
@@ -53,8 +54,8 @@ public class InputView extends Stage {
         return columns;
     }
 
-    public TableView<Studiengang> setup_table(){
-        TableView<Studiengang> table = new TableView<>();
+    public TableView<Fakultaet> setup_table(){
+        TableView<Fakultaet> table = new TableView<>();
         table.setEditable(true);
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
@@ -62,7 +63,7 @@ public class InputView extends Stage {
         for(TableColumn s : tc){
             table.getColumns().add(s);
         }
-        table.setItems(controller.getOm());
+        table.setItems(FXCollections.observableArrayList(controller.getOm()));
 
         return table;
     }
