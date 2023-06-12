@@ -29,8 +29,8 @@ public class PieChartView extends Stage {
         this.setY(10);
 
         for(Fakultaet s : om) {
-            this.om.add(new PieChart.Data(s.getStudiengang().get(), s.getBewerber().get()));
-            this.count += s.getBewerber().get();
+            this.om.add(new PieChart.Data(s.getStudiengang(), s.getBewerber()));
+            this.count += s.getBewerber();
         }
         this.pieChart = new PieChart(FXCollections.observableArrayList(this.om));
         this.pieChart.setTitle("Studiengänge und ihre Bewerber");
@@ -42,8 +42,8 @@ public class PieChartView extends Stage {
     }
     public void updatePieChart(int index, List<Fakultaet> ol){
         double old = this.pieChart.getData().get(index).getPieValue();
-        this.om.get(index).setName(ol.get(index).getStudiengang().get());
-        this.om.get(index).setPieValue(ol.get(index).getBewerber().get());
+        this.om.get(index).setName(ol.get(index).getStudiengang());
+        this.om.get(index).setPieValue(ol.get(index).getBewerber());
         this.count -= old;
         this.count += this.pieChart.getData().get(index).getPieValue();
     }

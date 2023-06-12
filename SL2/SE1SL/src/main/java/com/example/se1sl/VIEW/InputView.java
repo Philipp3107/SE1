@@ -2,6 +2,8 @@ package com.example.se1sl.VIEW;
 
 import com.example.se1sl.Controller.AppController;
 import com.example.se1sl.Model.Fakultaet;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -35,16 +37,14 @@ public class InputView extends Stage {
     public TableColumn[] setup_columns(){
         TableColumn[] columns = new TableColumn[2];
         TableColumn<Fakultaet, String> name = new TableColumn<>("Studiengang");
-        name.setCellValueFactory((n) -> {
-            return n.getValue().getStudiengang();
-        });
+        name.setCellValueFactory((n) -> new SimpleStringProperty(n.getValue().getStudiengang()));
         name.setCellFactory(TextFieldTableCell.forTableColumn());
         name.setOnEditCommit((TableColumn.CellEditEvent<Fakultaet, String> t) -> {
             controller.change_name(t.getTablePosition().getRow(), t.getOldValue(), t.getNewValue());
         });
         columns[0] = name;
         TableColumn<Fakultaet, Integer> bewerber = new TableColumn<>("Bewerber");
-        bewerber.setCellValueFactory((b) -> b.getValue().getBewerber().asObject());
+        bewerber.setCellValueFactory((b) -> new SimpleIntegerProperty(b.getValue().getBewerber()).asObject());
         bewerber.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         bewerber.setOnEditCommit((TableColumn.CellEditEvent<Fakultaet, Integer> t) -> {
             controller.change_bewerber(t.getTablePosition().getRow(), t.getOldValue(), t.getNewValue());

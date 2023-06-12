@@ -4,27 +4,27 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Fakultaet {
-    private SimpleStringProperty studiengang;
-    private SimpleIntegerProperty bewerber;
+    private String studiengang;
+    private Integer bewerber;
 
-    public Fakultaet(String Studiengang, Integer bewerber) {
-        this.studiengang = new SimpleStringProperty(Studiengang);
-        this.bewerber = new SimpleIntegerProperty(bewerber);
+    public Fakultaet(String studiengang, Integer bewerber) {
+        this.studiengang = studiengang;
+        this.bewerber = bewerber;
     }
 
-    public SimpleStringProperty getStudiengang() {
+    public String getStudiengang() {
         return this.studiengang;
     }
 
-    public SimpleIntegerProperty getBewerber() {
+    public Integer getBewerber() {
         return this.bewerber;
     }
 
     public void change_name(String studiengang) {
-        this.studiengang = new SimpleStringProperty(studiengang);
+        this.studiengang = studiengang;
     }
 
     public void change_bewerber(Integer bewerber) {
-        this.bewerber = new SimpleIntegerProperty(bewerber);
+        this.bewerber = bewerber;
     }
 }

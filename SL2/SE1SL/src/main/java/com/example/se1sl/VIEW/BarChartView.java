@@ -31,8 +31,8 @@ public class BarChartView extends Stage {
 
         for(Fakultaet s: ol) {
             XYChart.Series<String, Number> series = new XYChart.Series<>();
-            series.setName(s.getStudiengang().get());
-            series.getData().add(new XYChart.Data<>("", s.getBewerber().get()));
+            series.setName(s.getStudiengang());
+            series.getData().add(new XYChart.Data<>("", s.getBewerber()));
             bar_chart_data.add(series);
 
         }
@@ -50,7 +50,7 @@ public class BarChartView extends Stage {
         this.show();
     }
     public void updateBarChart(List<Fakultaet> ol, int index){
-        this.bar_chart_data.get(index).getData().get(0).setYValue(ol.get(index).getBewerber().get());
-        this.bar_chart_data.get(index).setName(ol.get(index).getStudiengang().get());
+        this.bar_chart_data.get(index).getData().get(0).setYValue(ol.get(index).getBewerber());
+        this.bar_chart_data.get(index).setName(ol.get(index).getStudiengang());
     }
 }
