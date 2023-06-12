@@ -15,9 +15,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 public class InputView extends Stage {
 
-    private TableView<Fakultaet> table = new TableView<>();
     private final AppController controller;
-
     public InputView(){
         this.controller = new AppController();
         init();
@@ -26,7 +24,7 @@ public class InputView extends Stage {
         VBox vb = new VBox();
         this.setResizable(false);
         this.setTitle("Eingabe");
-        table = setup_table();
+        TableView<Fakultaet> table = setup_table();
         vb.getChildren().add(table);
         Scene scene = new Scene(vb, 400, 148);
         this.setScene(scene);
@@ -40,14 +38,14 @@ public class InputView extends Stage {
         name.setCellValueFactory((n) -> new SimpleStringProperty(n.getValue().getStudiengang()));
         name.setCellFactory(TextFieldTableCell.forTableColumn());
         name.setOnEditCommit((TableColumn.CellEditEvent<Fakultaet, String> t) -> {
-            controller.change_name(t.getTablePosition().getRow(), t.getOldValue(), t.getNewValue());
+            controller.change_name(t.getTablePosition().getRow(), t.getNewValue());
         });
         columns[0] = name;
         TableColumn<Fakultaet, Integer> bewerber = new TableColumn<>("Bewerber");
         bewerber.setCellValueFactory((b) -> new SimpleIntegerProperty(b.getValue().getBewerber()).asObject());
         bewerber.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         bewerber.setOnEditCommit((TableColumn.CellEditEvent<Fakultaet, Integer> t) -> {
-            controller.change_bewerber(t.getTablePosition().getRow(), t.getOldValue(), t.getNewValue());
+            controller.change_bewerber(t.getTablePosition().getRow(), t.getNewValue());
 
         });
         columns[1] = bewerber;

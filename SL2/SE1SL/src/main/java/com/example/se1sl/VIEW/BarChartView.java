@@ -15,13 +15,10 @@ import java.util.List;
 
 public class BarChartView extends Stage {
 
-    VBox vb = new VBox();
     BarChart<String, Number> barChart;
     Group root = new Group();
     CategoryAxis xAxis = new CategoryAxis();
     NumberAxis yAxis = new NumberAxis();
-
-
     List<XYChart.Series<String, Number>> bar_chart_data = new ArrayList<>();
     public BarChartView(List<Fakultaet> ol) {
         init();
@@ -34,10 +31,8 @@ public class BarChartView extends Stage {
             series.setName(s.getStudiengang());
             series.getData().add(new XYChart.Data<>("", s.getBewerber()));
             bar_chart_data.add(series);
-
         }
 
-        //this.xAxis.setCategories(FXCollections.observableArrayList("bewerber"));
         this.xAxis.setLabel("Studiengang");
         this.yAxis.setLabel("Bewerber");
         this.barChart = new BarChart<>(xAxis, yAxis, FXCollections.observableArrayList(bar_chart_data));
@@ -49,6 +44,7 @@ public class BarChartView extends Stage {
         this.setScene(scene);
         this.setX(10);
         this.setY(500);
+        this.setTitle("BarChart Ansicht");
         this.show();
     }
     public void updateBarChart(List<Fakultaet> ol, int index){

@@ -5,9 +5,9 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Fakultaet {
     private String studiengang;
-    private Integer bewerber;
+    private int bewerber;
 
-    public Fakultaet(String studiengang, Integer bewerber) {
+    public Fakultaet(String studiengang, int bewerber) {
         this.studiengang = studiengang;
         this.bewerber = bewerber;
     }
@@ -16,7 +16,7 @@ public class Fakultaet {
         return this.studiengang;
     }
 
-    public Integer getBewerber() {
+    public int getBewerber() {
         return this.bewerber;
     }
 

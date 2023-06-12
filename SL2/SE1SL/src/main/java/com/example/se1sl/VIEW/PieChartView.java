@@ -15,16 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PieChartView extends Stage {
-    private PieChart pieChart;
-    private List<PieChart.Data> om = new ArrayList<>();
-    private Group root = new Group();
+    private final PieChart pieChart;
+    private final List<PieChart.Data> om = new ArrayList<>();
     private double count = 0;
-    private Label caption;
+    private final Label caption;
 
     public PieChartView(List<Fakultaet> om) {
         this.caption = new Label();
-        caption.setStyle("-fx-font: 24 arial;");
-        this.setTitle("Studiengänge und ihre Bewerber");
+        this.setTitle("PieChart Ansicht");
         this.setX(10);
         this.setY(10);
 
@@ -35,12 +33,13 @@ public class PieChartView extends Stage {
         this.pieChart = new PieChart(FXCollections.observableArrayList(this.om));
         this.pieChart.setTitle("Studiengänge und ihre Bewerber");
         add_handler();
-        this.root.getChildren().addAll(this.pieChart, caption);
+        Group root = new Group();
+        root.getChildren().addAll(this.pieChart, caption);
         Scene scene = new Scene(root, 500, 400);
         this.setScene(scene);
         this.show();
     }
-    public void updatePieChart(int index, List<Fakultaet> ol){
+    public void updatePieChart(List<Fakultaet> ol, int index){
         double old = this.pieChart.getData().get(index).getPieValue();
         this.om.get(index).setName(ol.get(index).getStudiengang());
         this.om.get(index).setPieValue(ol.get(index).getBewerber());
@@ -50,16 +49,13 @@ public class PieChartView extends Stage {
 
     public void add_handler(){
         for(PieChart.Data d: this.pieChart.getData()){
-            d.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent e) {
-                    if(e.getButton() == MouseButton.PRIMARY){
-                        caption.setTranslateX(e.getSceneX());
-                        caption.setTranslateY(e.getSceneY());
-                        caption.setText(String.format("%.1f", (d.getPieValue()*100)/count) + "%");
-                    }
-
+            d.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
+                if(e.getButton() == MouseButton.PRIMARY){
+                    caption.setTranslateX(e.getSceneX());
+                    caption.setTranslateY(e.getSceneY());
+                    caption.setText(String.format("%.1f", (d.getPieValue()*100)/count) + "%");
                 }
+
             });
         }
     }
