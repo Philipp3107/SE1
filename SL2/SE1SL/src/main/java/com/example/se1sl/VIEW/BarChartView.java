@@ -49,6 +49,7 @@ public class BarChartView extends Stage {
         this.setScene(scene);
         this.setX(10);
         this.setY(500);
+        this.setTitle("Studiengänge und ihre Bewerber");
         this.show();
     }
     public void updateBarChart(List<Fakultaet> ol, int index){

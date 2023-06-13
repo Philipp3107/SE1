@@ -7,7 +7,7 @@ public class Fakultaet {
     private String studiengang;
     private Integer bewerber;
 
-    public Fakultaet(String studiengang, Integer bewerber) {
+    public Fakultaet(String studiengang, Integer bewerber ) {
         this.studiengang = studiengang;
         this.bewerber = bewerber;
     }

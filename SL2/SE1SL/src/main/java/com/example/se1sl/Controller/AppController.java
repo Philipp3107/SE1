@@ -29,15 +29,15 @@ public class AppController{
 
     private void set_up_sga(){
         List<Fakultaet> sg = new ArrayList<>();
-        Fakultaet s1 = new Fakultaet("Informatik", 4);
+        Fakultaet s1 = new Fakultaet("Informatik", 0);
         sg.add(s1);
-        Fakultaet s2 = new Fakultaet("Wirtschafts Informatik", 4);
+        Fakultaet s2 = new Fakultaet("Wirtschafts Informatik", 0);
         sg.add(s2);
-        Fakultaet s3 = new Fakultaet("Cyber Security", 4);
+        Fakultaet s3 = new Fakultaet("Cyber Security", 0);
         sg.add(s3);
-        Fakultaet s4 = new Fakultaet("Medizinische Informatik", 4);
+        Fakultaet s4 = new Fakultaet("Medizinische Informatik", 0);
         sg.add(s4);
-        Fakultaet s5 = new Fakultaet("anderer Studiengang", 4);
+        Fakultaet s5 = new Fakultaet("anderer Studiengang", 0);
         sg.add(s5);
         this.sga = sg;
     }
