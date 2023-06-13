@@ -24,6 +24,11 @@ public class BarChartView extends Stage {
         init();
         setup_chart(ol);
     }
+
+    /**
+     *
+     * @param ol
+     */
     public void setup_chart(List<Fakultaet> ol){
 
         for(Fakultaet s: ol) {
@@ -39,6 +44,10 @@ public class BarChartView extends Stage {
         this.barChart.setTitle("Studiengänge und ihre Bewerber");
         this.root.getChildren().add(barChart);
     }
+
+    /**
+     *
+     */
     public void init(){
         Scene scene = new Scene(this.root, 500, 400);
         this.setScene(scene);
@@ -47,6 +56,12 @@ public class BarChartView extends Stage {
         this.setTitle("BarChart Ansicht");
         this.show();
     }
+
+    /**
+     *
+     * @param ol
+     * @param index
+     */
     public void updateBarChart(List<Fakultaet> ol, int index){
         this.bar_chart_data.get(index).getData().get(0).setYValue(ol.get(index).getBewerber());
         this.bar_chart_data.get(index).setName(ol.get(index).getStudiengang());

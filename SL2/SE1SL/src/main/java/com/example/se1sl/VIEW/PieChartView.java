@@ -2,7 +2,6 @@ package com.example.se1sl.VIEW;
 
 import com.example.se1sl.Model.Fakultaet;
 import javafx.collections.FXCollections;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
@@ -15,38 +14,64 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PieChartView extends Stage {
-    private final PieChart pieChart;
-    private final List<PieChart.Data> om = new ArrayList<>();
+    private final PieChart pieChart = new PieChart();
     private double count = 0;
     private final Label caption;
 
     public PieChartView(List<Fakultaet> om) {
         this.caption = new Label();
-        this.setTitle("PieChart Ansicht");
-        this.setX(10);
-        this.setY(10);
+        build_chart(om);
+        setup_screen();
+    }
 
-        for(Fakultaet s : om) {
-            this.om.add(new PieChart.Data(s.getStudiengang(), s.getBewerber()));
-            this.count += s.getBewerber();
+    /**
+     * Baut die Elemente des PieChart auf basis der Liste aus dem AppController.
+     * @param list<Fakulteat>
+     */
+    public void build_chart(List<Fakultaet> list){
+        List<PieChart.Data> data = new ArrayList<>();
+        for(Fakultaet fakultaet: list){
+            data.add(new PieChart.Data(fakultaet.getStudiengang(), fakultaet.getBewerber()));
+            this.count += fakultaet.getBewerber();
         }
-        this.pieChart = new PieChart(FXCollections.observableArrayList(this.om));
+        this.pieChart.setData(FXCollections.observableArrayList(data));
         this.pieChart.setTitle("Studiengänge und ihre Bewerber");
+    }
+
+    /**
+     * Fügt die Elemente zur Scene hinzu und setzt BIldschirmposition, größe und Titel des Fensters fest.
+     */
+    public void setup_screen(){
+        this.setTitle("PieChart Ansicht");
         add_handler();
         Group root = new Group();
         root.getChildren().addAll(this.pieChart, caption);
+
+        //Größe und Platz des Fensters auf dem Bildschirm
         Scene scene = new Scene(root, 500, 400);
+        this.setX(10);
+        this.setY(10);
+
         this.setScene(scene);
         this.show();
     }
-    public void updatePieChart(List<Fakultaet> ol, int index){
+
+    /**
+     * Ändert die bearbeiteten Elemente vom AppController im PieChart.
+     * @param list  Liste aus Fakultaets objekten
+     * @param index index des geänderten Objektes
+     */
+    public void updatePieChart(List<Fakultaet> list, int index){
         double old = this.pieChart.getData().get(index).getPieValue();
-        this.om.get(index).setName(ol.get(index).getStudiengang());
-        this.om.get(index).setPieValue(ol.get(index).getBewerber());
+        this.pieChart.getData().get(index).setName(list.get(index).getStudiengang());
+        this.pieChart.getData().get(index).setPieValue(list.get(index).getBewerber());
         this.count -= old;
         this.count += this.pieChart.getData().get(index).getPieValue();
     }
 
+    /**
+     * Fügt zum Piechart und den einzelnen PieParts das PRESSED MouseEvent bei linksklick hinzu und zeigt die einzelnen Prozente an.
+     */
     public void add_handler(){
         for(PieChart.Data d: this.pieChart.getData()){
             d.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
