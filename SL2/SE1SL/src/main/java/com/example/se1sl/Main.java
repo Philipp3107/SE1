@@ -1,6 +1,4 @@
-package com.example.se1sl;
-
-import com.example.se1sl.VIEW.InputView;
+import View.InputView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
