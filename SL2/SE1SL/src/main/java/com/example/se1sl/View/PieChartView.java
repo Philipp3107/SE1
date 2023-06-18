@@ -8,10 +8,16 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.geometry.Insets;
 import javafx.stage.Stage;
-
+import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.awt.Insets.*;
 
 public class PieChartView extends Stage {
     private final PieChart pieChart = new PieChart();
@@ -76,6 +82,7 @@ public class PieChartView extends Stage {
         for(PieChart.Data d: this.pieChart.getData()){
             d.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
                 if(e.getButton() == MouseButton.PRIMARY){
+                    caption.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
                     caption.setTranslateX(e.getSceneX());
                     caption.setTranslateY(e.getSceneY());
                     caption.setText(String.format("%.1f", (d.getPieValue()*100)/count) + "%");
