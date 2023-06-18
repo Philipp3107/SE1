@@ -24,8 +24,7 @@ git checkout -b
 ```shell
 git push origin "branchname"
 ```
-
----x
+---
 
 ### Step 4: Vor dem merge
 
