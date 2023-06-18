@@ -7,26 +7,39 @@ Software Engeneering 1
 ### Step 1: Pull des aktuellen standes vom Repo
 
 ```shell
-git pull origin main
+git pull origin main``
 ```
-
-### Step 2: Erstellen einer neuen feature Branch
-
-```shell
-git checkout -b {feature_branch_name}
-```
-
-### Step 3: Vor dem merge
-
-Pull des aktuellen Standes von `main` und merge in dem `feature-branch`
-
-```shell
-git pull origin main
-```
-
-
 
 ---
+
+### Step 2: Erstellen einer neuen feature Branch
+**Branch name nicht vergessen!!!**
+```shell
+git checkout -b
+```
+---
+
+### Step 3: Push der änderungen auf den feature Branch
+
+```shell
+git push origin "branchname"
+```
+
+---
+
+### Step 4: Vor dem merge
+
+Pull des aktuellen Standes von `main` und merge in dem `feature-branch` und löse alle Mergekonflikte auf
+
+```shell
+git pull origin main
+```
+
+---
+
+### Step 5: Erstelle einen Pullrequest auf Github:
+
+Gehe zu [diesem Repo](https://github.com/Philipp3107/SE1/pulls) und erstelle einen Pullrequest
 
 ## SL 1
 
@@ -34,11 +47,5 @@ git pull origin main
 
 ## SL 2
 
-#### Step 1:
-
----
-Git pull
-
----
 
 
