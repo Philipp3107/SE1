@@ -1,10 +1,9 @@
-package Controller;
+package com.example.slfinnaly.Controller;
 
-import Model.Fakultaet;
-
-import View.BarChartView;
-import View.InputView;
-import View.PieChartView;
+import com.example.slfinnaly.View.PieChartView;
+import com.example.slfinnaly.View.BarChartView;
+import com.example.slfinnaly.View.InputView;
+import com.example.slfinnaly.Model.Fakultaet;
 
 import java.util.ArrayList;
 import java.util.List;

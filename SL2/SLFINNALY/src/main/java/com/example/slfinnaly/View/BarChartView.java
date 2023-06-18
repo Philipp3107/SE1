@@ -1,6 +1,5 @@
-package View;
+package com.example.slfinnaly.View;
 
-import Model.Fakultaet;
 import javafx.collections.FXCollections;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -9,7 +8,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
-
+import com.example.slfinnaly.Model.Fakultaet;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package View;
+package com.example.test_for_sl.View;
 
-import Model.Fakultaet;
+import com.example.test_for_sl.Model.Fakultaet;
 import javafx.collections.FXCollections;
 import javafx.scene.Group;
 import javafx.scene.Scene;

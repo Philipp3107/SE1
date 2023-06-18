@@ -1,4 +1,4 @@
-package View;
+package com.example.slfinnaly.Model;
 
 public class Fakultaet {
     private String studiengang;

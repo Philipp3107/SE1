@@ -1,4 +1,6 @@
-import View.InputView;
+package com.example.slfinnaly;
+
+import com.example.slfinnaly.View.InputView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

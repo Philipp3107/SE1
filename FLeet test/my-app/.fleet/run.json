@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "maven-run",
+            "name": "App",
+            "mainClass": "App.java",
+        },
+        
+    ]
+}

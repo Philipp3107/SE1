@@ -1,6 +1,5 @@
-package View;
+package com.example.slfinnaly.View;
 
-import Model.Fakultaet;
 import javafx.collections.FXCollections;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -9,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import com.example.slfinnaly.Model.Fakultaet;
 
 import java.util.ArrayList;
 import java.util.List;

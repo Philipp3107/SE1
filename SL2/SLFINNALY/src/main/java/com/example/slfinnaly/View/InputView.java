@@ -1,7 +1,6 @@
-package View;
+package com.example.slfinnaly.View;
 
-import Controller.AppController;
-import Model.Fakultaet;
+import com.example.slfinnaly.Controller.AppController;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -12,6 +11,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
+import com.example.slfinnaly.Model.Fakultaet;
 
 public class InputView extends Stage {
 

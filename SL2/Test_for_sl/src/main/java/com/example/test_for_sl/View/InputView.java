@@ -1,7 +1,7 @@
-package View;
+package com.example.test_for_sl.View;
 
-import Controller.AppController;
-import Model.Fakultaet;
+import com.example.test_for_sl.Controller.AppController;
+import com.example.test_for_sl.Model.Fakultaet;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
