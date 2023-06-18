@@ -1,7 +1,7 @@
-package View;
+package com.example.se1sl.View;
 
-import Controller.AppController;
-import Model.Fakultaet;
+import com.example.se1sl.Controller.AppController;
+import com.example.se1sl.Model.Fakultaet;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -15,7 +15,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 public class InputView extends Stage {
 
-    //Controller für die MVC Architektur
+    //com.example.se1sl.Controller für die MVC Architektur
     private final AppController controller;
 
 

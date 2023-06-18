@@ -1,10 +1,9 @@
-package Controller;
+package com.example.se1sl.Controller;
 
-import Model.Fakultaet;
-
-import View.BarChartView;
-import View.InputView;
-import View.PieChartView;
+import com.example.se1sl.View.BarChartView;
+import com.example.se1sl.Model.Fakultaet;
+import com.example.se1sl.View.InputView;
+import com.example.se1sl.View.PieChartView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +36,7 @@ public class AppController{
     }
 
     /**
-     * Fügt in die Liste des Datenmodells die Einträge der Fakultät hinzu die dann zur Verarbeitung bei allen View benutzt wird.
+     * Fügt in die Liste des Datenmodells die Einträge der Fakultät hinzu die dann zur Verarbeitung bei allen com.example.se1sl.View benutzt wird.
      */
     private void set_up_sga(){
         Fakultaet s1 = new Fakultaet("B. Sc. Informatik", 1);

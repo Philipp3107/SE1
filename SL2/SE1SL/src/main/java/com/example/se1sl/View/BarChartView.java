@@ -1,6 +1,6 @@
-package View;
+package com.example.se1sl.View;
 
-import Model.Fakultaet;
+import com.example.se1sl.Model.Fakultaet;
 import javafx.collections.FXCollections;
 import javafx.scene.Group;
 import javafx.scene.Scene;
