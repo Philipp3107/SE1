@@ -7,7 +7,7 @@ Software Engeneering 1
 ### Step 1: Pull des aktuellen standes vom Repo
 
 ```shell
-git pull origin main``
+git pull origin main
 ```
 
 ---
@@ -25,7 +25,7 @@ git checkout -b
 git push origin "branchname"
 ```
 
----
+---x
 
 ### Step 4: Vor dem merge
 
