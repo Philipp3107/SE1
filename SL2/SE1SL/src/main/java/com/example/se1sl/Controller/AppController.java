@@ -4,7 +4,8 @@ import com.example.se1sl.View.BarChartView;
 import com.example.se1sl.Model.Fakultaet;
 import com.example.se1sl.View.InputView;
 import com.example.se1sl.View.PieChartView;
-
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,16 +40,28 @@ public class AppController{
      * Fügt in die Liste des Datenmodells die Einträge der Fakultät hinzu die dann zur Verarbeitung bei allen com.example.se1sl.View benutzt wird.
      */
     private void set_up_sga(){
-        Fakultaet s1 = new Fakultaet("B. Sc. Informatik", 1);
-        this.sga.add(s1);
-        Fakultaet s2 = new Fakultaet("B. Sc. Wirtschafts Informatik", 1);
-        this.sga.add(s2);
-        Fakultaet s3 = new Fakultaet("B. Sc. Cyber Security", 1);
-        this.sga.add(s3);
-        Fakultaet s4 = new Fakultaet("B. Sc. Medizininformatik", 1);
-        this.sga.add(s4);
-        Fakultaet s5 = new Fakultaet("M. SC. Medical Data Science", 1);
-        this.sga.add(s5);
+        String[] sg = {"B. Sc. Informatik", "B. Sc. Wirtschafts Informatik", "B. Sc. Cyber Security", "B. Sc. Medizininformatik", "M. SC. Medical Data Science"};
+        for(String s: sg){
+            Fakultaet fakultaet = new Fakultaet(s, 1);
+            fakultaet.getStudiengangProperty().addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                    System.out.printf("[%s] [%s] [%s]\n", observableValue, s, t1);
+                    third.updatePieChartStudiengang(t1, index);
+                    second.updateBarChartStudiengang(t1, index);
+                }
+            });
+            fakultaet.getBewerberProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                    System.out.printf("[%s] [%s] [%s]\n", observableValue, number, t1);
+                    second.updateBarChartBewerber((Integer) t1, index);
+                    third.updatePieChartBewerber((Integer) t1, index);
+                }
+            });
+
+            this.sga.add(fakultaet);
+        }
     }
 
     /**
@@ -61,7 +74,6 @@ public class AppController{
 
     /**
      * Ändert den Namen des Eintrags in der Fakultätsliste auf den neuen Wert und sendet dann den Eintrag an das Balken- bzw. Kreisdiagramm.
-     * {@link #send_update()}
      * @hidden wird aufgerufen aus {@link InputView#setup_columns()}
      * @param index Integer
      * @param new_value String
@@ -69,12 +81,10 @@ public class AppController{
     public void change_name(int index, String new_value){
         this.index = index;
         this.sga.get(index).change_name(new_value);
-        send_update();
     }
 
     /**
      * Ändert die Bewerber des Eintrags in der Fakultätsliste auf den neuen Wert und sendet dann den Eintrag an das Balken- bzw. Kreisdiagramm.
-     * {@link #send_update()}
      * @hidden wird aufgerufen aus {@link InputView#setup_columns()}
      * @param index Integer
      * @param new_value Integer
@@ -82,15 +92,8 @@ public class AppController{
     public void change_bewerber(int index, Integer new_value){
         this.index = index;
         this.sga.get(index).change_bewerber(new_value);
-        send_update();
+
     }
 
-    /**
-     * Sendet Fakultätsliste an das Balken- bzw. Kreisdiagramm.
-     * <p>{@link #change_name(int, String)} & {@link #change_bewerber(int, Integer)}</p>
-     */
-    public void send_update(){
-        second.updateBarChart(sga, this.index);
-        third.updatePieChart(sga, this.index);
-    }
+
 }

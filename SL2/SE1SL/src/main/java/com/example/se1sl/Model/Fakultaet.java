@@ -1,27 +1,42 @@
 package com.example.se1sl.Model;
 
-public class Fakultaet {
-    private String studiengang;
-    private int bewerber;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+public class Fakultaet{
+    private StringProperty studiengang;
+    private IntegerProperty bewerber;
 
     public Fakultaet(String studiengang, int bewerber) {
-        this.studiengang = studiengang;
-        this.bewerber = bewerber;
+
+        this.studiengang = new SimpleStringProperty(studiengang);
+       this.bewerber = new SimpleIntegerProperty(bewerber);
     }
 
-    public String getStudiengang() {
-        return this.studiengang;
+    public final String getStudiengang() {
+        return studiengang.get();
+    }
+    public final StringProperty getStudiengangProperty(){
+        return studiengang;
     }
 
-    public int getBewerber() {
-        return this.bewerber;
+    public final int getBewerber() {
+        return bewerber.get();
+    }
+
+    public final IntegerProperty getBewerberProperty(){
+        return bewerber;
     }
 
     public void change_name(String studiengang) {
-        this.studiengang = studiengang;
+        this.studiengang.set(studiengang);
     }
 
     public void change_bewerber(Integer bewerber) {
-        this.bewerber = bewerber;
+        this.bewerber.set(bewerber);
     }
+
 }

@@ -61,6 +61,15 @@ public class PieChartView extends Stage {
         this.setScene(scene);
         this.show();
     }
+    public void updatePieChartStudiengang(String s, int index){
+        this.pieChart.getData().get(index).setName(s);
+    }
+    public void updatePieChartBewerber(Integer i, int index){
+        double old = this.pieChart.getData().get(index).getPieValue();
+        this.pieChart.getData().get(index).setPieValue( i);
+        this.count -= old;
+        this.count +=  i;
+    }
 
     /**
      * Ändert die bearbeiteten Elemente vom AppController im PieChart.

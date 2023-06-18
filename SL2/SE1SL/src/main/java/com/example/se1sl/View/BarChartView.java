@@ -62,8 +62,12 @@ public class BarChartView extends Stage {
      * @param ol
      * @param index
      */
-    public void updateBarChart(List<Fakultaet> ol, int index){
-        this.bar_chart_data.get(index).getData().get(0).setYValue(ol.get(index).getBewerber());
-        this.bar_chart_data.get(index).setName(ol.get(index).getStudiengang());
+    public void updateBarChartStudiengang(String s, int index){
+        this.bar_chart_data.get(index).setName(s);
+
+    }
+
+    public void updateBarChartBewerber(Integer i, int index){
+        this.barChart.getData().get(index).getData().get(0).setYValue(i);
     }
 }
